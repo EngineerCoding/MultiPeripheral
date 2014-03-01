@@ -70,7 +70,6 @@ public class NBTManager
 	
 	public boolean addMultiIPeripheral(MultiIPeripheral peripheral, World world, int x, int y, int z)
 	{
-		System.out.println("Adding peripheral");
 		PositionInfo info = new PositionInfo(world, x, y, z, peripheral);
 		if(info.valid)
 		{
