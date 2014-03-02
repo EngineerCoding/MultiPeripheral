@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
-import engineer.multiperipheral.wrapper.single.ISavedExternalPeripheralWrapper;
+import engineer.multiperipheral.wrapper.single.INBTHostedPeripheralWrapper;
 
 public class PositionInfo 
 {
@@ -38,9 +38,9 @@ public class PositionInfo
 			for(int i = 0; i < peripheral.types.length; i++)
 			{
 				IPeripheral periph = peripheral.getPeripheral(peripheral.types[i]);
-				if(periph instanceof ISavedExternalPeripheralWrapper)
+				if(periph instanceof INBTHostedPeripheralWrapper)
 				{
-					nbtTypes.add((INBTHostedPeripheral) ((ISavedExternalPeripheralWrapper) periph).instance);
+					nbtTypes.add((INBTHostedPeripheral) ((INBTHostedPeripheralWrapper) periph).instance);
 				}
 			}
 			this.handlers = nbtTypes.toArray(new INBTHostedPeripheral[nbtTypes.size()]);

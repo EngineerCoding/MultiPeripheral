@@ -10,6 +10,7 @@ import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import engineer.multiperipheral.MultiPeripheral;
+import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.handler.WorldEventHandler;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
 
@@ -86,19 +87,33 @@ public class NBTManager
 			
 			NBTTagCompound nbt = this.fileManager.getNBT(info.dimensionId);
 			NBTTagCompound positionNBT = nbt.getCompoundTag(String.format("%d:%d:%d", x, y, z));
-			for(int i = 0; i < info.handlers.length; i++)
+			for(INBTHostedPeripheral periph : info.handlers)
 			{
-				NBTTagCompound handlerNBT = positionNBT.getCompoundTag(String.format("%d", i));
-				try
+				String name = null;
+				try 
 				{
-					info.handlers[i].readFromNBT(handlerNBT);
+					name = periph.getType();
 				}
 				catch(Exception e)
 				{
-					MultiPeripheral.Log.severe("Cannot call ISavedExternalPeripheral.readFromNBT on " + info.handlers[i].getClass().getName());
+					MultiPeripheral.Log.severe("Cannot call INBTHostedlPeripheral.getType on " + periph.getClass().getName());
 					MultiPeripheral.logThrowable(e);
 				}
-				positionNBT.setCompoundTag(String.format("%d", i), handlerNBT);
+				
+				if(name != null)
+				{
+					NBTTagCompound handlerNBT = positionNBT.getCompoundTag(String.format("%s", name));
+					try
+					{
+						periph.readFromNBT(handlerNBT);
+					}
+					catch(Exception e)
+					{
+						MultiPeripheral.Log.severe("Cannot call INBTHostedlPeripheral.readFromNBT on " + periph.getClass().getName());
+						MultiPeripheral.logThrowable(e);
+					}
+					positionNBT.setCompoundTag(String.format("%s", name), handlerNBT);
+				}
 			}
 			nbt.setCompoundTag(positionNBT.getName(), positionNBT);
 			this.fileManager.writeCompound(nbt, info.dimensionId);

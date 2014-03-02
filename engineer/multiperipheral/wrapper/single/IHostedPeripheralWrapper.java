@@ -7,13 +7,13 @@ import engineer.multiperipheral.MultiPeripheral;
 import engineer.multiperipheral.api.IHostedPeripheral;
 import engineer.multiperipheral.wrapper.MethodFinder;
 
-public class IExternalPeripheralWrapper extends MethodFinder implements IPeripheral
+public class IHostedPeripheralWrapper extends MethodFinder implements IPeripheral
 {
 	public final IHostedPeripheral instance;
 	public final boolean isPeripheral;
 	public final boolean isValid;
 	
-	public IExternalPeripheralWrapper(IHostedPeripheral peripheral, World world, int x, int y, int z, int side)
+	public IHostedPeripheralWrapper(IHostedPeripheral peripheral, World world, int x, int y, int z, int side)
 	{
 		super(peripheral);
 		this.instance = peripheral;
@@ -77,9 +77,9 @@ public class IExternalPeripheralWrapper extends MethodFinder implements IPeriphe
 	@Override
 	public boolean equals(IPeripheral other) 
 	{
-		if(other instanceof IExternalPeripheralWrapper)
+		if(other instanceof IHostedPeripheralWrapper)
 		{
-			IExternalPeripheralWrapper wrapper = (IExternalPeripheralWrapper) other;
+			IHostedPeripheralWrapper wrapper = (IHostedPeripheralWrapper) other;
 			return wrapper.instance.equals(this.instance);
 		}
 		return false;

@@ -10,7 +10,7 @@ import engineer.multiperipheral.lua.StandardMethods;
 import engineer.multiperipheral.util.ArrayUtil;
 import engineer.multiperipheral.util.ArrayUtil.ArrayIterator;
 import engineer.multiperipheral.util.wrapper.MultiIPeripheralUtil;
-import engineer.multiperipheral.wrapper.single.IExternalPeripheralWrapper;
+import engineer.multiperipheral.wrapper.single.IHostedPeripheralWrapper;
 
 
 public class MultiIPeripheral implements IPeripheral, IStandardMethod
@@ -61,7 +61,7 @@ public class MultiIPeripheral implements IPeripheral, IStandardMethod
 			
 			if(addStandard)
 			{
-				IPeripheral standardPeripheral = new IExternalPeripheralWrapper(new StandardMethods(this), null, 0, 0, 0, 0);
+				IPeripheral standardPeripheral = new IHostedPeripheralWrapper(new StandardMethods(this), null, 0, 0, 0, 0);
 				this.methods[this.methods.length - 1] = standardPeripheral.getMethodNames();
 				this.types[this.types.length - 1] = standardPeripheral.getType();
 				this.handlers[this.handlers.length - 1] = standardPeripheral;	

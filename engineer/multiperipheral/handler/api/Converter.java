@@ -12,9 +12,9 @@ import engineer.multiperipheral.api.ILuaPeripheral;
 import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
 import engineer.multiperipheral.wrapper.objects.IFunctionTableWrapper;
-import engineer.multiperipheral.wrapper.single.IExternalPeripheralWrapper;
+import engineer.multiperipheral.wrapper.single.IHostedPeripheralWrapper;
 import engineer.multiperipheral.wrapper.single.ILuaPeripheralWrapper;
-import engineer.multiperipheral.wrapper.single.ISavedExternalPeripheralWrapper;
+import engineer.multiperipheral.wrapper.single.INBTHostedPeripheralWrapper;
 
 public class Converter 
 {
@@ -44,7 +44,7 @@ public class Converter
 		{
 			if(peripheral != null && world != null)
 			{
-				IExternalPeripheralWrapper wrapper = new IExternalPeripheralWrapper(peripheral, world, x, y, z, side);
+				IHostedPeripheralWrapper wrapper = new IHostedPeripheralWrapper(peripheral, world, x, y, z, side);
 				if(wrapper.isPeripheral && wrapper.isValid)
 					return this.list.add(wrapper);
 			}
@@ -55,7 +55,7 @@ public class Converter
 		{
 			if(peripheral != null && world != null)
 			{
-				ISavedExternalPeripheralWrapper wrapper = new ISavedExternalPeripheralWrapper(peripheral, world, x, y, z, side);
+				INBTHostedPeripheralWrapper wrapper = new INBTHostedPeripheralWrapper(peripheral, world, x, y, z, side);
 				if(wrapper.isPeripheral && wrapper.isValid)
 					return this.list.add(wrapper);
 			}

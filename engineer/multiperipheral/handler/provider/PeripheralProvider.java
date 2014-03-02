@@ -15,7 +15,7 @@ import engineer.multiperipheral.handler.api.Registry;
 import engineer.multiperipheral.nbt.NBTManager;
 import engineer.multiperipheral.util.ReflectionUtil;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
-import engineer.multiperipheral.wrapper.single.IExternalPeripheralWrapper;
+import engineer.multiperipheral.wrapper.single.IHostedPeripheralWrapper;
 import engineer.multiperipheral.wrapper.single.ILuaPeripheralWrapper;
 
 public class PeripheralProvider implements IPeripheralProvider
@@ -56,9 +56,9 @@ public class PeripheralProvider implements IPeripheralProvider
 				while(it.hasNext())
 				{
 					IPeripheral peripheral = it.next();
-					if(peripheral instanceof IExternalPeripheralWrapper)
+					if(peripheral instanceof IHostedPeripheralWrapper)
 					{
-						IExternalPeripheralWrapper externalPeripheral = (IExternalPeripheralWrapper) peripheral;
+						IHostedPeripheralWrapper externalPeripheral = (IHostedPeripheralWrapper) peripheral;
 						try  {
 							if(!rejector.allowPeripheralMount(externalPeripheral.instance))
 								it.remove();

@@ -7,7 +7,7 @@ import engineer.multiperipheral.api.IHostedPeripheral;
 import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.handler.api.Converter.IPeripheralList;
 import engineer.multiperipheral.util.ReflectionUtil;
-import engineer.multiperipheral.wrapper.single.IExternalPeripheralWrapper;
+import engineer.multiperipheral.wrapper.single.IHostedPeripheralWrapper;
 
 public class Registry 
 {
@@ -21,7 +21,7 @@ public class Registry
 			IHostedPeripheral testInstance = (IHostedPeripheral) ReflectionUtil.newInstance(clazz);
 			if(testInstance != null && !registeredExternalPeripherals.contains(clazz))
 			{
-				IExternalPeripheralWrapper wrapper = new IExternalPeripheralWrapper(testInstance, null, 0, 0, 0, 0);
+				IHostedPeripheralWrapper wrapper = new IHostedPeripheralWrapper(testInstance, null, 0, 0, 0, 0);
 				if(wrapper.isValid)
 				{	
 					return registeredExternalPeripherals.add(clazz);
