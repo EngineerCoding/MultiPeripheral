@@ -3,6 +3,7 @@ package engineer.multiperipheral.nbt;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import net.minecraft.nbt.CompressedStreamTools;
@@ -37,7 +38,7 @@ public class FileManager
 		{
 			FileInputStream stream = new FileInputStream(file);
 			DataInputStream dataStream = new DataInputStream(stream);
-			NBTTagCompound nbt = CompressedStreamTools.read(dataStream);
+			NBTTagCompound nbt = CompressedStreamTools.readCompressed(dataStream);
 			
 			stream.close();
 			dataStream.close();
@@ -62,7 +63,7 @@ public class FileManager
 		{
 			File file = getFile(dimensionId);
 			try {
-				CompressedStreamTools.write(nbt, file);
+				CompressedStreamTools.writeCompressed(nbt, new FileOutputStream(file));
 				return true;
 			} catch(IOException e) {
 				

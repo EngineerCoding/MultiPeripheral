@@ -32,7 +32,7 @@ public class MultiPeripheral
 	{
 		proxy.init();
 		Log = event.getModLog();
-		PeripheralProvider.init(new PeripheralProvider());	
+		PeripheralProvider.init();	
 	}
 	
 	@Mod.EventHandler

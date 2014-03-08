@@ -8,7 +8,7 @@ import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
 import engineer.multiperipheral.wrapper.peripheral.INBTHostedPeripheralWrapper;
 
-public class PositionInfo 
+public class NBTPositionHelper 
 {
 	public final World world;
 	public final int xPos;
@@ -20,7 +20,7 @@ public class PositionInfo
 	
 	public final boolean valid;
 	
-	public PositionInfo(World world, int x, int y, int z, MultiIPeripheral peripheral)
+	public NBTPositionHelper(World world, int x, int y, int z, MultiIPeripheral peripheral)
 	{
 		this.world = world;
 		this.xPos = x;

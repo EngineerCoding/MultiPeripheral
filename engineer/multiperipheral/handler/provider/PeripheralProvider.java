@@ -79,7 +79,7 @@ public class PeripheralProvider implements IPeripheralProvider
 		return null;
 	}
 	
-	public static void init(IPeripheralProvider _provider)
+	public static void init()
 	{
 		if(!replacedCCfield)
 		{
@@ -92,7 +92,7 @@ public class PeripheralProvider implements IPeripheralProvider
 				ArrayList<IPeripheralProvider> CCprovider = (ArrayList<IPeripheralProvider>) ReflectionUtil.getFieldValue(providerField, null);
 				if(CCprovider != null)
 				{
-					ListImitator<IPeripheralProvider> provider = new ListImitator<IPeripheralProvider>(_provider, CCprovider);
+					ListImitator<IPeripheralProvider> provider = new ListImitator<IPeripheralProvider>(new PeripheralProvider(), CCprovider);
 					PROVIDER = provider.peripheralProvider;
 					
 					if(PROVIDER != null && ReflectionUtil.setFieldValue(providerField, null, provider))

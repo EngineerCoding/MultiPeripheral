@@ -17,7 +17,7 @@ import engineer.multiperipheral.wrapper.MultiIPeripheral;
 public class NBTManager 
 {	
 	private final FileManager fileManager;
-	private ArrayList<PositionInfo> list = new ArrayList<PositionInfo>();
+	private ArrayList<NBTPositionHelper> list = new ArrayList<NBTPositionHelper>();
 	
 	public NBTManager()
 	{
@@ -34,10 +34,10 @@ public class NBTManager
 		{
 			TileEntity tile = itMap.next();
 			
-			Iterator<PositionInfo> itPos = this.list.iterator();
+			Iterator<NBTPositionHelper> itPos = this.list.iterator();
 			while(itPos.hasNext())
 			{
-				PositionInfo posInfo = itPos.next();
+				NBTPositionHelper posInfo = itPos.next();
 				if(posInfo.xPos == tile.xCoord && posInfo.yPos == tile.yCoord && posInfo.zPos == tile.zCoord)
 				{
 					this.onChunkUnload(posInfo);
@@ -47,7 +47,7 @@ public class NBTManager
 		}
 	}
 	
-	public void onChunkUnload(PositionInfo info)
+	public void onChunkUnload(NBTPositionHelper info)
 	{
 		NBTTagCompound nbt = this.fileManager.getNBT(info.dimensionId);
 		NBTTagCompound positionNBT = nbt.getCompoundTag(String.format("%d:%d:%d", info.xPos, info.yPos, info.zPos));
@@ -71,13 +71,13 @@ public class NBTManager
 	
 	public boolean addMultiIPeripheral(MultiIPeripheral peripheral, World world, int x, int y, int z)
 	{
-		PositionInfo info = new PositionInfo(world, x, y, z, peripheral);
+		NBTPositionHelper info = new NBTPositionHelper(world, x, y, z, peripheral);
 		if(info.valid)
 		{
-			Iterator<PositionInfo> it = this.list.iterator();
+			Iterator<NBTPositionHelper> it = this.list.iterator();
 			while(it.hasNext())
 			{
-				PositionInfo _info = it.next();
+				NBTPositionHelper _info = it.next();
 				if(_info.dimensionId == info.dimensionId && _info.xPos == info.xPos && _info.yPos == info.yPos && _info.zPos == info.zPos)
 				{
 					this.onChunkUnload(_info);
@@ -102,7 +102,7 @@ public class NBTManager
 				
 				if(name != null)
 				{
-					NBTTagCompound handlerNBT = positionNBT.getCompoundTag(String.format("%s", name));
+					NBTTagCompound handlerNBT = positionNBT.getCompoundTag(String.format("%s_%s", name, periph.getClass().getName()));
 					try
 					{
 						periph.readFromNBT(handlerNBT);
@@ -112,7 +112,7 @@ public class NBTManager
 						MultiPeripheral.Log.severe("Cannot call INBTHostedlPeripheral.readFromNBT on " + periph.getClass().getName());
 						MultiPeripheral.logThrowable(e);
 					}
-					positionNBT.setCompoundTag(String.format("%s", name), handlerNBT);
+					positionNBT.setCompoundTag(String.format("%s_%s", name, periph.getClass().getName()), handlerNBT);
 				}
 			}
 			nbt.setCompoundTag(positionNBT.getName(), positionNBT);
