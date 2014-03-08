@@ -7,7 +7,7 @@ import engineer.multiperipheral.api.IHostedPeripheral;
 import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.handler.api.Converter.IPeripheralList;
 import engineer.multiperipheral.util.ReflectionUtil;
-import engineer.multiperipheral.wrapper.single.IHostedPeripheralWrapper;
+import engineer.multiperipheral.wrapper.peripheral.IHostedPeripheralWrapper;
 
 public class Registry 
 {

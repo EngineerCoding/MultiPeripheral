@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
-import engineer.multiperipheral.wrapper.single.INBTHostedPeripheralWrapper;
+import engineer.multiperipheral.wrapper.peripheral.INBTHostedPeripheralWrapper;
 
 public class PositionInfo 
 {

@@ -12,9 +12,9 @@ import engineer.multiperipheral.api.ILuaPeripheral;
 import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
 import engineer.multiperipheral.wrapper.objects.IFunctionTableWrapper;
-import engineer.multiperipheral.wrapper.single.IHostedPeripheralWrapper;
-import engineer.multiperipheral.wrapper.single.ILuaPeripheralWrapper;
-import engineer.multiperipheral.wrapper.single.INBTHostedPeripheralWrapper;
+import engineer.multiperipheral.wrapper.peripheral.IHostedPeripheralWrapper;
+import engineer.multiperipheral.wrapper.peripheral.ILuaPeripheralWrapper;
+import engineer.multiperipheral.wrapper.peripheral.INBTHostedPeripheralWrapper;
 
 public class Converter 
 {

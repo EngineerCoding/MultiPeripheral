@@ -10,7 +10,7 @@ import engineer.multiperipheral.lua.StandardMethods;
 import engineer.multiperipheral.util.ArrayUtil;
 import engineer.multiperipheral.util.ArrayUtil.ArrayIterator;
 import engineer.multiperipheral.util.wrapper.MultiIPeripheralUtil;
-import engineer.multiperipheral.wrapper.single.IHostedPeripheralWrapper;
+import engineer.multiperipheral.wrapper.peripheral.IHostedPeripheralWrapper;
 
 
 public class MultiIPeripheral implements IPeripheral, IStandardMethod

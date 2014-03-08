@@ -15,8 +15,8 @@ import engineer.multiperipheral.handler.api.Registry;
 import engineer.multiperipheral.nbt.NBTManager;
 import engineer.multiperipheral.util.ReflectionUtil;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
-import engineer.multiperipheral.wrapper.single.IHostedPeripheralWrapper;
-import engineer.multiperipheral.wrapper.single.ILuaPeripheralWrapper;
+import engineer.multiperipheral.wrapper.peripheral.IHostedPeripheralWrapper;
+import engineer.multiperipheral.wrapper.peripheral.ILuaPeripheralWrapper;
 
 public class PeripheralProvider implements IPeripheralProvider
 {	

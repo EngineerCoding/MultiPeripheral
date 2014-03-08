@@ -1,4 +1,4 @@
-package engineer.multiperipheral.wrapper.single;
+package engineer.multiperipheral.wrapper.peripheral;
 
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;

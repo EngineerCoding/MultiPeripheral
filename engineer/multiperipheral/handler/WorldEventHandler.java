@@ -11,8 +11,8 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.EventPriority;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.world.ChunkEvent;
-import net.minecraftforge.event.world.WorldEvent;
+import net.minecraftforge.event.world.ChunkEvent.Unload;
+import net.minecraftforge.event.world.WorldEvent.Save;
 import engineer.multiperipheral.nbt.NBTManager;
 
 public class WorldEventHandler 
@@ -26,7 +26,7 @@ public class WorldEventHandler
 	}
 	
 	@ForgeSubscribe(priority=EventPriority.HIGHEST)
-	public void onWorldSave(WorldEvent.Save saveEvent)
+	public void onWorldSave(Save saveEvent)
 	{
 		if(saveEvent.world != null && !saveEvent.world.isRemote)
 		{
@@ -63,7 +63,7 @@ public class WorldEventHandler
 	}
 	
 	@ForgeSubscribe(priority=EventPriority.HIGHEST)
-	public void onChunkUnload(ChunkEvent.Unload unloadEvent)
+	public void onChunkUnload(Unload unloadEvent)
 	{
 		Chunk chunk = unloadEvent.getChunk();
 		if(chunk != null && !chunk.worldObj.isRemote)

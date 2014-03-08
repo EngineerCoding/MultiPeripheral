@@ -1,4 +1,4 @@
-package engineer.multiperipheral.wrapper.single;
+package engineer.multiperipheral.wrapper.peripheral;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
