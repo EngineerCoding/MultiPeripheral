@@ -1,4 +1,4 @@
-package engineer.multiperipheral.lua.object;
+package engineer.multiperipheral.lua;
 
 import engineer.multiperipheral.api.IMethodTable;
 import engineer.multiperipheral.api.LuaArg;

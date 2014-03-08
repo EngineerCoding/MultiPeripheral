@@ -12,7 +12,6 @@ import engineer.multiperipheral.api.LuaMethod;
 import engineer.multiperipheral.api.LuaMethod.Check;
 import engineer.multiperipheral.api.LuaMethod.Describe;
 import engineer.multiperipheral.handler.api.Handler;
-import engineer.multiperipheral.lua.object.DescriptionObject;
 import engineer.multiperipheral.wrapper.MethodFinder;
 import engineer.multiperipheral.wrapper.MethodWrapper;
 import engineer.multiperipheral.wrapper.objects.IPeripheralObject;
