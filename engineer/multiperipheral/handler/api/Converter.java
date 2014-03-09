@@ -11,7 +11,7 @@ import engineer.multiperipheral.api.IMethodTable;
 import engineer.multiperipheral.api.ILuaPeripheral;
 import engineer.multiperipheral.api.INBTHostedPeripheral;
 import engineer.multiperipheral.wrapper.MultiIPeripheral;
-import engineer.multiperipheral.wrapper.objects.IFunctionTableWrapper;
+import engineer.multiperipheral.wrapper.objects.IMethodTableWrapper;
 import engineer.multiperipheral.wrapper.peripheral.IHostedPeripheralWrapper;
 import engineer.multiperipheral.wrapper.peripheral.ILuaPeripheralWrapper;
 import engineer.multiperipheral.wrapper.peripheral.INBTHostedPeripheralWrapper;
@@ -90,7 +90,7 @@ public class Converter
 	{
 		if(table != null)
 		{
-			IFunctionTableWrapper wrapper = new IFunctionTableWrapper(table);
+			IMethodTableWrapper wrapper = new IMethodTableWrapper(table);
 			if(wrapper.hasMethods)
 				return wrapper;
 		}

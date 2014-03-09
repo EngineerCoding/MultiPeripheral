@@ -9,8 +9,8 @@ import java.io.IOException;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.DimensionManager;
+import engineer.multiperipheral.ModInfo;
 import engineer.multiperipheral.MultiPeripheral;
-import engineer.multiperipheral.lib.ModInfo;
 
 public class FileManager 
 {

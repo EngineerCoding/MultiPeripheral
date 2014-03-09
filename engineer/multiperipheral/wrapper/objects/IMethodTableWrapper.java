@@ -5,9 +5,9 @@ import dan200.computercraft.api.lua.ILuaObject;
 import engineer.multiperipheral.api.IMethodTable;
 import engineer.multiperipheral.wrapper.MethodFinder;
 
-public class IFunctionTableWrapper extends MethodFinder implements ILuaObject, IMethodTable
+public class IMethodTableWrapper extends MethodFinder implements ILuaObject, IMethodTable
 {
-	public IFunctionTableWrapper(IMethodTable table) 
+	public IMethodTableWrapper(IMethodTable table) 
 	{
 		super(table);
 	}
