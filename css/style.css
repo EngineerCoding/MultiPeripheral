@@ -1,0 +1,41 @@
+body  {
+	margin: 0px;
+	padding: 0px;
+	background-color: #A6A686;
+}
+
+div#wrapper {
+	margin: 2.5%;
+
+	-webkit-animation-duration: 3s;
+	   -moz-animation-duration: 3s;
+	     -o-animation-duration: 3s;
+		    animation-duration: 3s;
+	-webkit-animation-name: slideIn;
+	   -moz-animation-name: slideIn;
+	     -o-animation-name: slideIn;
+		    animation-name: slideIn;
+	
+	width: 95%;
+	height: 90%;
+	position: absolute;
+	border: 2px solid #666666;
+	
+	color: #666666;
+	background-color: #CCCC9A;
+}
+
+
+
+
+
+.round {
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	     -o-border-radius: 5px;
+	        border-radius: 5px;
+}
+
+.center {
+	text-align: center;
+}
